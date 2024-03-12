@@ -21,7 +21,7 @@ services:
     container_name: sqlserver
     restart: always
     environment:
-      this environment for creating an empty database
+      #this environment for creating an empty database
       - ACCEPT_EULA=y
       - SA_PASSWORD=StrongPassword123!
     ports:
