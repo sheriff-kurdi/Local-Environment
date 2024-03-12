@@ -3,18 +3,18 @@ version: '3'
 services:
 
 
-  postgres_db:
-    image: mdillon/postgis
-    container_name: postgres
-    restart: always
-    environment:
-      - POSTGRES_PASSWORD=123456789
-      - POSTGRES_USER=postgres
-    ports:
-      - 5432:5432
-    networks:
-      local:
-        ipv4_address: 10.5.0.2
+  # postgres_db:
+  #   image: mdillon/postgis
+  #   container_name: postgres
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_PASSWORD=123456789
+  #     - POSTGRES_USER=postgres
+  #   ports:
+  #     - 5432:5432
+  #   networks:
+  #     local:
+  #       ipv4_address: 10.5.0.2
 
   sql_server_db:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -32,55 +32,54 @@ services:
         
         
         
-  mysql_db:
-    image: mysql
-    container_name: mysql
-    restart: always
-    environment:
-      #this environment for creating an empty database
-      - MYSQL_ROOT_PASSWORD=123456789
-    ports:
-      - 3306:3306
-    networks:
-      local:
-        ipv4_address: 10.5.0.4
-
+  # mysql_db:
+  #   image: mysql
+  #   container_name: mysql
+  #   restart: always
+  #   environment:
+  #     #this environment for creating an empty database
+  #     - MYSQL_ROOT_PASSWORD=123456789
+  #   ports:
+  #     - 3306:3306
+  #   networks:
+  #     local:
+  #       ipv4_address: 10.5.0.4
         
         
-  mongo_db:
-    image: mongo
-    container_name: mongo
-    restart: always
-    ports:
-      - 27017:27017
-    networks:
-      local:
-        ipv4_address: 10.5.0.5
+  # mongo_db:
+  #   image: mongo
+  #   container_name: mongo
+  #   restart: always
+  #   ports:
+  #     - 27017:27017
+  #   networks:
+  #     local:
+  #       ipv4_address: 10.5.0.5
 
   
-  adminer:
-    image: adminer
-    container_name: adminer
-    restart: always
-    ports:
-      - 8084:8080
-    networks:
-      local:
-        ipv4_address: 10.5.0.6
+  # adminer:
+  #   image: adminer
+  #   container_name: adminer
+  #   restart: always
+  #   ports:
+  #     - 8084:8080
+  #   networks:
+  #     local:
+  #       ipv4_address: 10.5.0.6
       
-  rabbitmq:
-    image: rabbitmq:3-management-alpine
-    container_name: 'rabbitmq'
-    ports:
-        - 5672:5672
-        - 15672:15672
-    # TODO:Check how to use volumes.
-    volumes:
-        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-    networks:
-      local:
-        ipv4_address: 10.5.0.7      
+  # rabbitmq:
+  #   image: rabbitmq:3-management-alpine
+  #   container_name: 'rabbitmq'
+  #   ports:
+  #       - 5672:5672
+  #       - 15672:15672
+  #   # TODO:Check how to use volumes.
+  #   volumes:
+  #       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+  #       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+  #   networks:
+  #     local:
+  #       ipv4_address: 10.5.0.7      
       
 networks:
   local:
